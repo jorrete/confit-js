@@ -1,0 +1,19 @@
+root: true
+system_deployments:
+  - giweb
+  - pgadmin4
+  - upcoming
+  - disabled
+
+target#local:
+  machine: centos8
+  debug: true
+  scheme: 'http'
+  domain: hikeorama.centos8.box
+
+target#live:
+  machine: jorrodev-1
+  scheme: 'https'
+  debug: false
+  domain: hikeorama.com
+
