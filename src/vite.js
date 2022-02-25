@@ -1,6 +1,5 @@
-import getConfit from './conf';
-import { resolve } from 'path';
-import { config } from 'process';
+const getConfit = require('./conf');
+const { resolve } = require('path');
 
 function confitPlugin({
   root = null,
