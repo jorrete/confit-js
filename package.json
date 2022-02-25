@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "exports": {
+    ".": {
+      "require": "./src/conf.js"
+    },
+    "./vite": {
+      "require": "./src/vite.js"
+    }
+  },
   "scripts": {
     "dev": "vite"
   },
