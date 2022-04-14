@@ -28,6 +28,14 @@ function applyTarget(conf, target) {
   return merge(cleanConf, targetConf);
 }
 
+function cleanTargets(conf, targets) {
+    targets.forEach((target) => {
+      delete conf[TARGET_TOKEN + target]
+    });
+    return conf
+}
+
+
 function getFirstRooIndex(confs) {
   for (var i = 0, len = confs.length; i < len; i++) {
     if (confs[i].root) {
@@ -42,6 +50,7 @@ function getConfit(path, {
   target = null,
   tree = true,
   rootDir = homedir,
+  enforceTarget = true,
 }) {
   const fileName = `${name}.yaml`;
   const files = [fileName, `.${fileName}`];
@@ -55,20 +64,28 @@ function getConfit(path, {
 
   confTargets = getConfTargets(conf);
 
-  if (target) {
-    if (!confHasTarget(conf)) {
-      throw Error('You must define targets in file.');
+  if (enforceTarget) {
+    if (target) {
+      if (!confHasTarget(conf)) {
+        throw Error('You must define targets in file.');
+      }
+
+      if (!confTargets.includes(target)) {
+        throw Error(`Target "${target}" not found`);
+      }
+
+      conf = applyTarget(conf, target)
+
+    } else {
+      if (confHasTarget(conf)) {
+        throw Error('You must pass a target.');
+      }
     }
-
-    if (!confTargets.includes(target)) {
-      throw Error(`Target "${target}" not found`);
-    }
-
-    conf = applyTarget(conf, target)
-
   } else {
-    if (confHasTarget(conf)) {
-      throw Error('You must pass a target.');
+    if (target) {
+      conf = applyTarget(conf, target)
+    } else {
+      cleanTargets(conf, confTargets);
     }
   }
 
