@@ -3,10 +3,10 @@ const { resolve } = require('path');
 
 function confitPlugin({
   root = null,
-  file = 'confit',
+  name = 'confit',
   target = null,
 } = {}) {
-  const virtualModuleId = `@${file}`
+  const virtualModuleId = `@${name}`
   const resolvedVirtualModuleId = '\0' + virtualModuleId
   const cwd = process.cwd();
   const configPath = (
@@ -22,13 +22,13 @@ function confitPlugin({
   const confit = getConfit(
     configPath,
     {
-      file,
+      name,
       target: target || process.env.CONFIT_TARGET || 'local',
     }
   );
 
   return {
-    name: file,
+    name: name,
     resolveId(id) {
       if (id === virtualModuleId) {
         return resolvedVirtualModuleId
