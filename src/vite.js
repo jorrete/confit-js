@@ -28,6 +28,7 @@ function confitPlugin({
   );
 
   return {
+    confit,
     name: name,
     resolveId(id) {
       if (id === virtualModuleId) {
