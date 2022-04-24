@@ -5,6 +5,7 @@ function confitPlugin({
   root = null,
   name = 'confit',
   target = null,
+  process = (confit) => confit,
 } = {}) {
   const virtualModuleId = `@${name}`
   const resolvedVirtualModuleId = '\0' + virtualModuleId
@@ -19,13 +20,13 @@ function confitPlugin({
       )
   );
 
-  const confit = getConfit(
+  const confit = process(getConfit(
     configPath,
     {
       name,
-      target: target || process.env.CONFIT_TARGET || 'local',
+      target: target || process.env.CONFIT_TARGET,
     }
-  );
+  ));
 
   return {
     confit,
