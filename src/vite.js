@@ -38,7 +38,11 @@ function confitPlugin({
     },
     load(id) {
       if (id === resolvedVirtualModuleId) {
-        return `export default ${JSON.stringify(confit)}`;
+        return `
+        const ${name} = Object.freeze(${JSON.stringify(confit)});
+        console.log('[${name}]', ${name});
+        export default ${name};
+        `;
       }
     }
   }

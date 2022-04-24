@@ -8,6 +8,7 @@ export default defineConfig({
   root,
   plugins: [
     confit({
+      target: 'local',
       root,
     }),
   ],
