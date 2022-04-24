@@ -5,7 +5,7 @@ function confitPlugin({
   root = null,
   name = 'confit',
   target = null,
-  process = (confit) => confit,
+  callback = (confit) => confit,
 } = {}) {
   const virtualModuleId = `@${name}`
   const resolvedVirtualModuleId = '\0' + virtualModuleId
@@ -20,7 +20,7 @@ function confitPlugin({
       )
   );
 
-  const confit = process(getConfit(
+  const confit = callback(getConfit(
     configPath,
     {
       name,
