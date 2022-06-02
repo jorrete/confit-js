@@ -6,6 +6,7 @@ function confitPlugin({
   name = 'confit',
   target = null,
   callback = (confit) => confit,
+  enforceTarget = true,
 } = {}) {
   const virtualModuleId = `@${name}`
   const resolvedVirtualModuleId = '\0' + virtualModuleId
@@ -25,6 +26,7 @@ function confitPlugin({
     {
       name,
       target: target || process.env.CONFIT_TARGET,
+      enforceTarget,
     }
   ));
 
