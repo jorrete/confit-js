@@ -1,8 +1,7 @@
 const getConfit = require('..');
-const target = process.env.CONFIT_TARGET || 'local'
-
+const target = process.env.CONFIT_TARGET || 'live'
 const conf = getConfit(
-    '/home/jorro/Development/javascript/confit/example-node',
+    process.cwd(),
     {
       target,
       tree: true,

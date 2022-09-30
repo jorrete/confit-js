@@ -1,9 +1,24 @@
+const nunjucks = require('nunjucks');
 const { getFiles } = require('./files');
 const { readYaml } = require('./yaml');
 const homedir = require('os').homedir();
 const merge = require('merge-deep');
+const { basename, dirname } = require('path');
 
 const TARGET_TOKEN = 'target#';
+
+function basenameFilter(filePath) {
+  return basename(filePath)
+}
+
+function dirnameFilter(filePath) {
+  return diname(filePath)
+}
+
+const env = new nunjucks.Environment()
+
+env.addFilter('dirname', dirnameFilter, true);
+env.addFilter('basename', basenameFilter, false);
 
 function getConfTargets(conf) {
   return Object.keys(conf)
@@ -89,7 +104,7 @@ function getConfit(path, {
     }
   }
 
-  return conf;
+  return JSON.parse(env.renderString(JSON.stringify(conf), conf));
 }
 
 module.exports = getConfit

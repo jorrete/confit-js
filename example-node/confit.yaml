@@ -1,4 +1,8 @@
 root: true
+base_domain: foo.com
+file_path: /foo/bar.txt
+file_name: "{{ file_path | basename }}"
+do_not_fail: "{{ do_not_fail }}"
 system_deployments:
   - giweb
   - pgadmin4
@@ -16,4 +20,4 @@ target#live:
   scheme: 'https'
   debug: false
   domain: hikeorama.com
-
+  subdomain: "www.{{ base_domain }}"
