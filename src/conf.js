@@ -66,7 +66,7 @@ function getConfit(path, {
   tree = true,
   rootDir = homedir,
   enforceTarget = true,
-}) {
+} = {}) {
   const fileName = `${name}.yaml`;
   const files = [fileName, `.${fileName}`];
   let confs = getFiles(path, files, tree, rootDir).map((path) => readYaml(path).toJSON());
