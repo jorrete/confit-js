@@ -30,9 +30,14 @@ function confitPlugin({
     }
   ));
 
+  let config;
+
   return {
     confit,
     name: name,
+    configResolved(resolvedConfig) {
+      config = resolvedConfig;
+    },
     resolveId(id) {
       if (id === virtualModuleId) {
         return resolvedVirtualModuleId
@@ -42,7 +47,7 @@ function confitPlugin({
       if (id === resolvedVirtualModuleId) {
         return `
         const ${name} = Object.freeze(${JSON.stringify(confit)});
-        console.log('[${name}]', ${name});
+        ${config.command === 'serve' ? `console.log('[${name}]', ${name});` : ''}
         export default ${name};
         `;
       }

@@ -2,6 +2,7 @@ const { existsSync } = require('fs');
 const { join, dirname } = require('path');
 
 function getFiles(path, files, tree, rootDir) {
+  console.log(path, files, tree, rootDir);
   const matches = [];
 
   for (let i = 0, len = files.length; i < len; i++) {
