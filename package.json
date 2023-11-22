@@ -16,15 +16,14 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^20.9.4",
+    "@types/merge-deep": "^3.0.3",
+    "@types/nunjucks": "^3.2.6",
     "merge-deep": "^3.0.3",
-    "npm-check-updates": "^16.14.11",
     "nunjucks": "^3.2.4",
-    "to-esm": "^2.27.3",
     "yaml": "^2.3.4"
   },
   "devDependencies": {
-    "@types/merge-deep": "^3.0.3",
-    "@types/nunjucks": "^3.2.6",
+    "npm-check-updates": "^16.14.11",
     "eslint-config-jorrodev": "github:jorrete/eslint-config-jorrodev#main.latest",
     "vite": "^5.0.2"
   }
