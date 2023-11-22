@@ -11,6 +11,8 @@
   },
   "files": [
     "./src/vite.ts",
-    "./src/confit.ts"
+    "./src/confit.ts",
+    "./src/files.ts",
+    "./src/yaml.ts"
   ]
 }
