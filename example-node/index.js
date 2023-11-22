@@ -1,12 +1,13 @@
-const getConfit = require('..');
-const target = process.env.CONFIT_TARGET || 'live'
+import getConfit from '../src/confit.js';
+
+const target = process.env.CONFIT_TARGET || 'live';
 const conf = getConfit(
-    process.cwd(),
-    {
-      target,
-      tree: true,
-      enforceTarget: false,
-    }
+  process.cwd(),
+  {
+    enforceTarget: false,
+    target,
+    tree: true,
+  },
 );
 
 console.log(conf);

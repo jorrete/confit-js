@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "target": "esnext",
+    "module": "node16",
+    "types": [
+      "vite/client"
+    ]
+  },
+  "files": [
+    "./src/vite.ts",
+    "./src/confit.ts"
+  ]
+}

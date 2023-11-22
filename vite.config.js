@@ -1,18 +1,20 @@
 import { defineConfig } from 'vite';
-import confit from './src/vite';
+
+import { confitPlugin } from './src/vite';
 
 const root = 'example-vite';
 
-const config = confit({
-  target: 'local',
+const confit = confitPlugin({
   root,
+  target: 'local',
 });
 
-console.log(config);
+console.log(confit);
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  root,
   plugins: [
-    config,
+    confit,
   ],
+  root,
 });

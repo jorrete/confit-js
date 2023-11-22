@@ -2,26 +2,29 @@
   "name": "confit",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "exports": {
-    ".": {
-      "require": "./src/conf.js"
-    },
-    "./vite": {
-      "require": "./src/vite.js"
-    }
+    ".": "./dist/confit.js",
+    "./vite": "./dist/vite.js"
   },
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "tsc -p ./tsconfig.json -d"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^20.9.4",
     "merge-deep": "^3.0.3",
-    "nunjucks": "^3.2.3",
-    "yaml": "^1.10.0"
+    "npm-check-updates": "^16.14.11",
+    "nunjucks": "^3.2.4",
+    "to-esm": "^2.27.3",
+    "yaml": "^2.3.4"
   },
   "devDependencies": {
-    "vite": "^2.8.4"
+    "@types/merge-deep": "^3.0.3",
+    "@types/nunjucks": "^3.2.6",
+    "eslint-config-jorrodev": "github:jorrete/eslint-config-jorrodev#main.latest",
+    "vite": "^5.0.2"
   }
 }
