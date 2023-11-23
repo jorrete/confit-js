@@ -1,2 +1,10 @@
 node_modules
 dist
+vite.js
+vite.d.ts
+confit.js
+confit.d.ts
+files.js
+files.d.ts
+yaml.d.ts
+yaml.js

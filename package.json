@@ -3,11 +3,7 @@
   "version": "1.2.0",
   "description": "",
   "type": "module",
-  "main": "./dist/confit.js",
-  "exports": {
-    ".": "./dist/confit.js",
-    "./vite": "./dist/vite.js"
-  },
+  "main": "./confit.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p ./tsconfig.json -d",
